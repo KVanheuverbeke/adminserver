@@ -1,0 +1,72 @@
+server:
+  port: 9080
+
+spring:
+  boot:
+    admin:
+      ui:
+        title: Microservices monitoring - Spring Boot Admin
+        brand: Microservices monitoring - Spring Boot Admin
+        public-url: http://localhost:9080
+        available-languages:
+          - nl
+          - en
+          - fr
+      notify:
+        mail:
+          enabled: false
+          #from: Spring Boot Admin <noreply@dataxc.be>
+          to:
+            - karl.vanheuverbeke@telenet.be
+
+  mail:
+    host: localhost
+    port: 25
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: development
+  boot:
+    admin:
+      ui:
+        title: Microservices monitoring DEV - Spring Boot Admin
+        brand: Microservices monitoring DEV - Spring Boot Admin
+        #public-url: https://svc-d.dataxc.biz/microservices-monitoring/v1
+      notify:
+        mail:
+          enabled: false
+  #mail:
+  #  host: bemailrelay.dataxc.biz
+  #  port: 25
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: testing
+  boot:
+    admin:
+      ui:
+        title: Microservices monitoring TEST - Spring Boot Admin
+        brand: Microservices monitoring TEST - Spring Boot Admin
+        #public-url: https://svc-t.dataxc.biz/microservices-monitoring/v1
+      notify:
+        mail:
+          enabled: false
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: production
+  boot:
+    admin:
+      ui:
+        title: Microservices monitoring PROD - Spring Boot Admin
+        brand: Microservices monitoring PROD - Spring Boot Admin
+        #public-url: https://svc.dataxc.biz/microservices-monitoring/v1
